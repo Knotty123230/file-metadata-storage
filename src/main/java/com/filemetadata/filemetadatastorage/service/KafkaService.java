@@ -10,11 +10,19 @@ import org.springframework.stereotype.Service;
 import static com.filemetadata.filemetadatastorage.constants.KafkaConstants.KAFKA_CONSUMER_GROUP_ID;
 import static com.filemetadata.filemetadatastorage.constants.KafkaConstants.TOPIC_CREATE_ORDER;
 
+/**
+ * The type Kafka service.
+ */
 @Service
 @Slf4j
 public class KafkaService implements IKafkaService{
     private final FileMetadataRelationalRepository fileMetadataElasticSearchRepository;
 
+    /**
+     * Instantiates a new Kafka service.
+     *
+     * @param fileMetadataElasticSearchRepository the file metadata elastic search repository
+     */
     public KafkaService(FileMetadataRelationalRepository fileMetadataElasticSearchRepository) {
         this.fileMetadataElasticSearchRepository = fileMetadataElasticSearchRepository;
     }
@@ -26,7 +34,6 @@ public class KafkaService implements IKafkaService{
                 .id(fileMetadataDTO.getId())
                 .description(fileMetadataDTO.getDescription())
                 .httpContentType(fileMetadataDTO.getHttpContentType())
-
                 .header(fileMetadataDTO.getHeader())
                 .size(fileMetadataDTO.getSize())
                 .name(fileMetadataDTO.getName())

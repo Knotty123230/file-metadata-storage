@@ -3,6 +3,9 @@ package com.filemetadata.filemetadatastorage.dto;
 import lombok.*;
 
 
+/**
+ * The type File metadata dto.
+ */
 @Getter
 @Setter
 @Builder
